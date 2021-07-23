@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\sdbstock\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2880381470.index
+3588933505.index
+335005594.index
+3429861968.index
+1734303723.index
+3959030090.index
+3881916261.index

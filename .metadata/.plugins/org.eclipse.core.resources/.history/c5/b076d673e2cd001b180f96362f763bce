@@ -1,0 +1,15 @@
+package poly.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class NoticeController {
+
+	
+	@RequestMapping(value="noticelist")
+	public String Index() {
+		
+		return "/notice/noticelist";
+	}
+}

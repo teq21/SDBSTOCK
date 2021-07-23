@@ -1,0 +1,7 @@
+package poly.controller;
+
+
+@Controller
+public class NoticeController {
+
+}

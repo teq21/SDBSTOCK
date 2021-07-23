@@ -1,0 +1,80 @@
+<%@page import="poly.util.Pagination"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<style> 
+	.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;color: #00c292;}
+	a.page_link {color:#00c292;}
+	.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #00c292;
+    border-color: #00c292;
+}
+	</style>
+	
+	
+<div class="text-center">
+	<ul class="pagination">
+		<%
+			if (pg.getCurRange() != 1) {
+		%>
+		<li class="page-item"><a class="page-link"
+			href="<%=pageName%>.do?page=1" aria-label="Previous"> <span
+				aria-hidden="true">&lt;&lt;</span>
+		</a></li>
+		<%
+			}
+		%>
+		<%
+			if (pg.getCurPage() != 1) {
+		%>
+		<li class="page-item"><a class="page-link"
+			href="<%=pageName%>.do?page=<%=pg.getPrevPage()%>"
+			aria-label="Previous"> <span aria-hidden="true">&lt;</span> <span
+				class="sr-only">Previous</span>
+		</a></li>
+		<%
+			}
+		%>
+		<%
+			for (int i = pg.getStartPage(); i < pg.getEndPage() + 1; i++) {
+		%>
+		<%
+			if (pg.getCurPage() == i) {
+		%>
+		<li class="page-item active"><a class="page-link"><%=i%></a></li>
+		<%
+			} else {
+		%>
+		<li class="page-item"><a class="page-link"
+			href="<%=pageName%>.do?page=<%=i%>"><%=i%></a></li>
+		<%
+			}
+		%>
+		<%
+			}
+		%>
+		<%
+			if ((pg.getCurPage() != pg.getPageCnt()) && (pg.getPageCnt() > 0)) {
+		%>
+		<li class="page-item"><a class="page-link"
+			href="<%=pageName%>.do?page=<%=pg.getNextPage()%>" aria-label="Next">
+				<span aria-hidden="true">&gt;</span>
+		</a></li>
+		<%
+			}
+		%>
+		<%
+			if ((pg.getCurRange() != pg.getRangeCnt()) && (pg.getRangeCnt() > 0)) {
+		%>
+		<li class="page-item"><a class="page-link"
+			href="<%=pageName%>.do?page=<%=pg.getPageCnt()%>" aria-label="Next">
+				<span aria-hidden="true">&gt;&gt;</span>
+		</a></li>
+		<%
+			}
+		%>
+	</ul>
+</div>
